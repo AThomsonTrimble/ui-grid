@@ -120,6 +120,9 @@
           if (position === 'left') {
             // Get the column to the left of this one
             var colIndex = renderContainer.visibleColumnCache.indexOf(col);
+            if (colIndex === 0) {
+              return renderContainer.visibleColumnCache[0]; // There is no column to the left!
+            }
             return renderContainer.visibleColumnCache[colIndex - 1 * rtlMultiplier];
           } else {
             return col;
